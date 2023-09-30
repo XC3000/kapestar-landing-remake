@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+}
+
+.landing-page-badge {
+  @apply max-w-max rounded-lg border bg-gradient-to-r from-zinc-950 to-blue-950 px-4 py-2 text-xs  lg:text-sm;
+}
