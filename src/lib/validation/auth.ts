@@ -93,6 +93,23 @@ export const RegisterValidation = z
     message: "Password doesn't match",
   });
 
+export const ContactFormValidation = z.object({
+  firstName: z
+    .string()
+    .nonempty({ message: nonEmptyErrorMessage })
+    .refine((value) => /^[a-zA-Z\s]+$/i.test(value), {
+      message: "First name should only contain letters",
+    }),
+  lastName: z
+    .string()
+    .nonempty({ message: nonEmptyErrorMessage })
+    .refine((value) => /^[a-zA-Z\s]+$/i.test(value), {
+      message: "Last name should only contain letters",
+    }),
+  email: LoginValidation.shape.email,
+  number: z.string().nonempty({ message: phoneErrorMessage }),
+});
+
 export const CreatePasswordValidation = z
   .object({
     password: LoginValidation.shape.password,

@@ -2,18 +2,24 @@ import { poppins } from "@/app/layout";
 import Image from "next/image";
 import Link from "next/link";
 import { Icons } from "../icons";
-import { Logo } from "../ui/logo";
 
 function Footer() {
   return (
     <footer
       id="footer"
-      className={`${poppins.className} bg-blue-100 dark:bg-zinc-950`}
+      className={`${poppins.className} bg-zinc-900 text-white`}
     >
       <div className="m-auto max-w-[1400px] px-4 pt-24">
         <div className="flex flex-col items-center justify-between gap-y-4 sm:flex-row">
           <div className="flex flex-col items-center gap-y-1 sm:flex-row ">
-            <Logo showText={true} />
+            <Image
+              src="/logo.png"
+              className="invert"
+              width={36}
+              height={36}
+              alt="logo"
+            />
+            <p className="ml-2 font-bold">KAPESTAR</p>
           </div>
 
           <div className="flex items-center gap-3 text-zinc-500">

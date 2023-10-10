@@ -2,12 +2,11 @@
 import { cn } from "@/lib/utils";
 import { useScrollTop } from "@wojtekmaj/react-hooks";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { Icons } from "../icons";
-import { ThemeToggle } from "../layouts/theme-toggle";
 import { buttonVariants } from "../ui/button";
-import { Logo } from "../ui/logo";
 import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
 
 function Header() {
@@ -20,32 +19,45 @@ function Header() {
   return (
     <header
       className={`${
-        scrollTop && scrollTop > 80
-          ? "fixed bg-white dark:bg-zinc-900"
-          : "absolute text-white"
-      } top-0 z-20 w-full border-b text-black duration-300 dark:text-white`}
+        scrollTop && scrollTop > 80 && "fixed left-0 right-0"
+      } top-0 z-20  w-full  bg-zinc-50 px-3 text-black duration-300`}
     >
-      <div className="container flex  items-center justify-between  p-3 lg:items-end">
-        <Link
-          href="/"
-          className="flex flex-col items-center justify-center gap-y-1"
-        >
-          <Logo showText={false} />
-          <p className="font-extrabold">TRADE DONS</p>
-        </Link>
-        <div className="hidden items-end gap-6 lg:flex">
-          <Link className="text-blue-600" href="/">
-            <span className="flex gap-3 text-red-600">
-              Live <Icons.radio className="animate-pulse" />
-            </span>
-            Market Data
+      <div className="mx-auto flex max-w-[1380px] items-center justify-between p-3 lg:items-end">
+        <div className="flex items-center gap-12">
+          <Link
+            href="/"
+            className="flex items-center justify-center gap-2 gap-y-1"
+          >
+            <Image
+              src="/logo.png"
+              width={48}
+              height={48}
+              alt="Kapestar logo"
+              className="dark:invert"
+            />
+            <p className=" font-bold">KAPESTAR</p>
           </Link>
-          <Link href="/">Education</Link>
-          <Link href="/">Support</Link>
-          <Link href="/">Pricing</Link>
+          <div className="hidden items-end gap-6 text-sm lg:flex">
+            <Link href="/">Why Kapestar</Link>
+            <Link href="/">Oboarding</Link>
+            <Link href="/">Pricing</Link>
+            <Link href="/">Contact</Link>
+          </div>
         </div>
 
         <div className="hidden items-center gap-4  lg:flex">
+          <Link
+            className={cn(
+              buttonVariants({
+                variant: "outline",
+                className:
+                  "bg-transparent px-8 py-3 dark:bg-transparent dark:text-white dark:hover:bg-white dark:hover:text-black",
+              })
+            )}
+            href="/register"
+          >
+            Signup
+          </Link>
           <Link
             className={cn(
               buttonVariants({
@@ -57,35 +69,31 @@ function Header() {
           >
             Login
           </Link>
-          <Link
-            className={cn(
-              buttonVariants({
-                variant: "outline",
-                className:
-                  "bg-transparent px-8 py-3 dark:bg-transparent dark:text-white dark:hover:bg-white dark:hover:text-black",
-              })
-            )}
-            href="/register"
-          >
-            Register
-          </Link>
-          <div className="hidden md:block">
-            <ThemeToggle />
-          </div>
         </div>
         <div className="relative z-10 flex items-center  dark:text-white lg:hidden">
-          <ThemeToggle />
           <Sheet>
             <SheetTrigger className="lg:hidden">
               <Icons.menu />
             </SheetTrigger>
             <SheetContent className="flex min-h-screen items-center justify-center  text-center">
               <div className="flex flex-col gap-6 ">
-                <Link href="/">Market Data</Link>
-                <Link href="/">Education</Link>
-                <Link href="/">Support</Link>
+                <Link href="/">Why Kapestar</Link>
+                <Link href="/">Oboarding</Link>
                 <Link href="/">Pricing</Link>
+                <Link href="/">Contact</Link>
 
+                <Link
+                  className={cn(
+                    buttonVariants({
+                      variant: "outline",
+                      className:
+                        "bg-transparent px-8 py-3 dark:bg-transparent dark:text-white dark:hover:bg-white dark:hover:text-black",
+                    })
+                  )}
+                  href="/register"
+                >
+                  Signup
+                </Link>
                 <Link
                   className={cn(
                     buttonVariants({
@@ -96,17 +104,6 @@ function Header() {
                   href="/login"
                 >
                   Login
-                </Link>
-                <Link
-                  className={cn(
-                    buttonVariants({
-                      variant: "outline",
-                      className: "bg-transparent px-8 py-3 dark:text-white",
-                    })
-                  )}
-                  href="/register"
-                >
-                  Register
                 </Link>
               </div>
             </SheetContent>

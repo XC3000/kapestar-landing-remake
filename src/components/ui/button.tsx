@@ -9,11 +9,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-blue-600 text-zinc-50 hover:bg-blue-600/90",
+        default:
+          "bg-zinc-800 text-zinc-50 hover:bg-zinc-800/90 dark:bg-white dark:text-zinc-800",
         destructive:
           "bg-red-500 text-zinc-50 hover:bg-red-500/90 dark:bg-red-900 dark:text-zinc-50 dark:hover:bg-red-900/90",
         outline:
-          "border border-zinc-200 bg-white hover:bg-zinc-100 hover:text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:hover:bg-zinc-900/40 dark:hover:text-zinc-50",
+          "border border-zinc-400 bg-white hover:bg-zinc-100 hover:text-zinc-900 dark:border-zinc-600 dark:bg-zinc-800 dark:hover:bg-zinc-900/40 dark:hover:text-zinc-50",
         secondary:
           "bg-zinc-100 text-zinc-900 hover:bg-zinc-100/80 dark:bg-zinc-800 dark:text-zinc-50 dark:hover:bg-zinc-800/80",
         ghost:
@@ -22,9 +23,9 @@ const buttonVariants = cva(
         disabled: "bg-gray-300 text-gray-500 cursor-not-allowed", // Add disabled styles here
       },
       size: {
-        default: "h-10 px-4 py-2",
+        default: "px-4 py-2",
         sm: "rounded-md px-3 text-[13px]  py-1.5 px-4",
-        lg: "h-11 rounded-md px-8",
+        lg: "rounded-md px-8",
         icon: "h-10 w-10",
       },
     },

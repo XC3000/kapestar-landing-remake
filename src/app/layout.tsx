@@ -1,5 +1,4 @@
 import ReactQueryProvider from "@/components/ReactQueryProvider";
-import { Providers } from "@/components/providers";
 import { Toaster } from "@/components/ui/toaster";
 import { Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
@@ -28,9 +27,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <link rel="icon" href="/favicon.ico" sizes="any" />
       <body className={`${poppins.className} bg-zinc-50 dark:bg-zinc-900`}>
-        <Providers attribute="class" defaultTheme="system" enableSystem>
-          <ReactQueryProvider>{children}</ReactQueryProvider>
-        </Providers>
+        <ReactQueryProvider>{children}</ReactQueryProvider>
         <Toaster />
       </body>
     </html>

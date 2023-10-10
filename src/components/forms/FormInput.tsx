@@ -5,7 +5,7 @@ import { Input } from "../ui/input";
 import { Label } from "../ui/label";
 
 interface FormInputProps {
-  placeholder: string;
+  placeholder?: string;
   label?: string;
   type: "text" | "number" | "password" | "email";
   field: { value: string };
